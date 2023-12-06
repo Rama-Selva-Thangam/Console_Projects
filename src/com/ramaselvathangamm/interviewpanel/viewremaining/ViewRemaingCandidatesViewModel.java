@@ -19,7 +19,7 @@ class ViewRemaingCandidatesViewModel {
 				System.out.println(candidate.getCandidateName());
 			}
 		} else {
-			System.out.println("No more Candidates  are there");
+			System.out.println("No more Candidates are there");
 		}
 
 	}
