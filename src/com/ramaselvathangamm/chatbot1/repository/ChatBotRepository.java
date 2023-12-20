@@ -14,9 +14,7 @@ import org.json.simple.parser.ParseException;
 public class ChatBotRepository {
 	private static ChatBotRepository repository;
 
-	private ChatBotRepository() {
-
-	}
+	private ChatBotRepository() {}
 
 	public static ChatBotRepository getInstance() {
 		if (repository == null) {
