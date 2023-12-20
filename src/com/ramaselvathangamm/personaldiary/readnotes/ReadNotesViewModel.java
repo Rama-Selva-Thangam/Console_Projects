@@ -22,7 +22,7 @@ class ReadNotesViewModel {
 			String note = diary.getNotes();
 			Date time = new Date(date);
 			String formattedDate = dateFormat.format(time);
-			System.out.println(formattedDate + " : " + note);
+			System.out.println("Writted on : " + formattedDate + "\t" + "Note : " + note);
 		}
 
 	}
