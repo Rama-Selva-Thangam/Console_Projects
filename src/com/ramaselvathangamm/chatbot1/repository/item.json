@@ -1,0 +1,12 @@
+{
+  "0":{"0": ["1.English","0-Exit"]},
+  "1": {
+    "1": ["1.Hot Drinks","2.Cold Drinks","3.Fast Foods","4.New Offers","9-Back","0.Exit"]
+  },
+  "2": {
+    "1": ["1.Coffee","2.Black Coffee","3.Tea","4.Black Tea","5.Chocolate Coffee","9.Back","0.Exit"],
+    "2": ["1.Rose Milk","2.Badam Milk","3.Orange Juice","4.Lemon Juice","9.Back","0-Exit"],
+    "3": ["1.Egg Puffs","2.Veg Puffs","3.Chicken Roll","4.Chicken Roll","9.Back","0.Exit"],
+    "4": ["1.Two Coffee + One Egg puffs free","2.Two Rose Milk + One Lemon Juice free","3.Free delivary in Upto Rs.500","9.Back","0.Exit"]
+  }
+}
