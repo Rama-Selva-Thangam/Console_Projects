@@ -3,6 +3,7 @@ package com.ramaselvathangamm.personaldiary;
 import java.util.Scanner;
 
 import com.ramaselvathangamm.personaldiary.readnotes.ReadNotesView;
+import com.ramaselvathangamm.personaldiary.repository.Repository;
 import com.ramaselvathangamm.personaldiary.writenotes.WriteNoteView;
 
 public class PersonalDiary {
@@ -17,7 +18,7 @@ public class PersonalDiary {
 		int choice;
 		do {
 			System.out.println("--- WELCOME ---");
-			System.out.println("Enter your Option : \n1.Write a Note\n2.Read all Notes\n0.Exit");
+			System.out.println("Enter your Option : \n1.Write a Note\n2.Read all Notes\n3.Search a Note\n0.Exit");
 			System.out.println("---------------------------------");
 			choice = scan.nextInt();
 			scan.nextLine();
@@ -30,6 +31,10 @@ public class PersonalDiary {
 				ReadNotesView readNotesView = new ReadNotesView();
 				readNotesView.readNotes();
 				break;
+			case 3:
+				ReadNotesView readNotesViewSerach = new ReadNotesView();
+				readNotesViewSerach.searchNotes();
+				break;
 			case 0:
 				loop = false;
 				break;
@@ -38,6 +43,7 @@ public class PersonalDiary {
 			}
 
 		} while (loop);
+		Repository.getInstance().closeConnection();
 		System.out.println("--- THANK YOU ! ---");
 
 	}
