@@ -32,8 +32,8 @@ public class PersonalDiary {
 				readNotesView.readNotes();
 				break;
 			case 3:
-				ReadNotesView readNotesViewSerach = new ReadNotesView();
-				readNotesViewSerach.searchNotes();
+				ReadNotesView readNotesViewSearch = new ReadNotesView();
+				readNotesViewSearch.searchNotes();
 				break;
 			case 0:
 				loop = false;
