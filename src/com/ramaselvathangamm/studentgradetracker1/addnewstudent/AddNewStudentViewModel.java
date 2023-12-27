@@ -1,4 +1,4 @@
-package com.ramaselvathangamm.studentgradetracker.addnewstudent;
+package com.ramaselvathangamm.studentgradetracker1.addnewstudent;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -24,9 +24,8 @@ class AddNewStudentViewModel {
 			return 3;
 		}
 		Student student = new Student(rollNumber, studentName, dateOfBirth);
-
-		Repository.getInstance().addNewStudent(student);
 		Repository.getInstance().createStudentTable(student);
+		Repository.getInstance().addNewStudent(student);
 		return 0;
 	}
 

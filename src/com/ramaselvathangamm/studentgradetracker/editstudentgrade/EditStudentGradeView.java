@@ -31,8 +31,15 @@ public class EditStudentGradeView {
 			System.out.print("Enter Subject 5 mark : ");
 			int subject5 = scan.nextInt();
 			scan.nextLine();
-			editStudentGradeViewModel.editStudentGrade(student, month, subject1, subject2, subject3, subject4,
-					subject5);
+			int status = editStudentGradeViewModel.editStudentGrade(student, month, subject1, subject2, subject3,
+					subject4, subject5);
+			if (status == 0) {
+				System.out.println("Data added Successfully");
+			} else if (status == 2) {
+				System.out.println("Invalid Month");
+			} else if (status == 3) {
+				System.out.println("Error occured\nData Not added");
+			}
 		} else {
 			System.out.println("Student Not found");
 		}

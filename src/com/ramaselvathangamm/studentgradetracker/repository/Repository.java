@@ -79,10 +79,11 @@ public class Repository {
 
 	public void createStudentTable(Student student) {
 		try {
-			int tableName = student.getRollNumber();
+			int rollNumber = student.getRollNumber();
+			String tableName = "student_" + rollNumber;
 			String createTableSQL = "CREATE TABLE IF NOT EXISTS " + tableName + " ("
 					+ "monthOfGrade VARCHAR(10) PRIMARY KEY," + "subject1 INT," + "subject2 INT," + "subject3 INT,"
-					+ "subject4 INT," + "subject5 INT," + "grade CHAR(1)" + ");";
+					+ "subject4 INT," + "subject5 INT," + "grade VARCHAR(2)" + ");";
 
 			Statement statement = connection.createStatement();
 			statement.execute(createTableSQL);
@@ -113,9 +114,10 @@ public class Repository {
 
 	}
 
-	public void editStudent(Student student, String monthName, int subject1, int subject2, int subject3, int subject4,
+	public int editStudent(Student student, String monthName, int subject1, int subject2, int subject3, int subject4,
 			int subject5, String grade) {
-		int tableName = student.getRollNumber();
+		int rollNumber = student.getRollNumber();
+		String tableName = "student_" + rollNumber;
 
 		try {
 			String updateSQL = "UPDATE " + tableName
@@ -141,10 +143,37 @@ public class Repository {
 				insertStatement.setInt(6, subject5);
 				insertStatement.setString(7, grade);
 				insertStatement.executeUpdate();
+				return 0;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+			return 1;
+		}
+		return 0;
+
+	}
+
+	public ArrayList<String> getData(Student student) {
+		ArrayList<String> rowDataList = new ArrayList<>();
+		try {
+			int rollNumber = student.getRollNumber();
+			String tableName = "student_" + rollNumber;
+			String selectDataSQL = "SELECT * FROM " + tableName + ";";
+			Statement statement = connection.createStatement();
+			ResultSet resultSet = statement.executeQuery(selectDataSQL);
+			while (resultSet.next()) {
+				String rowData = resultSet.getString("monthOfGrade") + "," + resultSet.getInt("subject1") + ","
+						+ resultSet.getInt("subject2") + "," + resultSet.getInt("subject3") + ","
+						+ resultSet.getInt("subject4") + "," + resultSet.getInt("subject5") + ","
+						+ resultSet.getString("grade");
+
+				rowDataList.add(rowData);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
 
+		return rowDataList;
 	}
 }

@@ -19,8 +19,9 @@ class EditStudentGradeViewModel {
 		return student;
 	}
 
-	public void editStudentGrade(Student student, int monthNumber, int subject1, int subject2, int subject3,
+	public int editStudentGrade(Student student, int monthNumber, int subject1, int subject2, int subject3,
 			int subject4, int subject5) {
+		int status = 1;
 		if (monthNumber >= 1 && monthNumber <= 12) {
 			Date date = new Date();
 			date.setMonth(monthNumber - 1);
@@ -31,13 +32,14 @@ class EditStudentGradeViewModel {
 					: (calculate >= 81) ? "A"
 							: (calculate >= 71) ? "B+"
 									: (calculate >= 61) ? "B" : (calculate >= 51) ? "C" : (calculate >= 41) ? "D" : "U";
-			Repository.getInstance().editStudent(student, monthName, subject1, subject2, subject3, subject4, subject5,
-					grade);
+			status = Repository.getInstance().editStudent(student, monthName, subject1, subject2, subject3, subject4,
+					subject5, grade);
 
 		} else {
 			System.out.println("Invalid Month");
-			return;
+			status = 2;
 		}
+		return status;
 
 	}
 
