@@ -40,8 +40,4 @@ public class AddNewStudentView {
 			System.out.println("Roll Number already Exists");
 		}
 	}
-
-	public static void main(String[] args) {
-		new AddNewStudentView().addNewStudent();
-	}
 }

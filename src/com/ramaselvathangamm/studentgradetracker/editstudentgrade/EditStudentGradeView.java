@@ -48,7 +48,6 @@ public class EditStudentGradeView {
 	private void showStudentInfo(Student student) {
 		System.out
 				.println(student.getStudentName() + " | " + student.getRollNumber() + " | " + student.getDateOfBirth());
-
 	}
 
 }
