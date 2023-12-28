@@ -22,9 +22,9 @@ public class ViewStudentGradeView {
 			ArrayList<String> data = viewStudentGradeViewModel.getGrade(student);
 			if (!data.isEmpty()) {
 				System.out.println("Grade Details:");
-				System.out.printf("%-15s%-10s%-10s%-10s%-10s%-10s%-10s%n", "Month", "Subject1", "Subject2", "Subject3",
-						"Subject4", "Subject5", "Grade");
-				System.out.println("--------------------------------------------------------");
+				System.out.printf("%-15s%-10s%-10s%-10s%-10s%-10s%-10s%n", "Month | ", "Subject1 | ", "Subject2 | ", "Subject3 | ",
+						"Subject4 | ", "Subject5 | ", "Grade | ");
+				System.out.println("----------------------------------------------------------------------------------");
 
 				for (String rowData : data) {
 					String[] result = rowData.split(",");

@@ -155,12 +155,15 @@ public class Repository {
 
 	public ArrayList<String> getData(Student student) {
 		ArrayList<String> rowDataList = new ArrayList<>();
+
 		try {
 			int rollNumber = student.getRollNumber();
 			String tableName = "student_" + rollNumber;
-			String selectDataSQL = "SELECT * FROM " + tableName + ";";
+			String selectDataSQL = "SELECT * FROM " + tableName + " ORDER BY monthOfGrade;";
+
 			Statement statement = connection.createStatement();
 			ResultSet resultSet = statement.executeQuery(selectDataSQL);
+
 			while (resultSet.next()) {
 				String rowData = resultSet.getString("monthOfGrade") + "," + resultSet.getInt("subject1") + ","
 						+ resultSet.getInt("subject2") + "," + resultSet.getInt("subject3") + ","
@@ -176,4 +179,5 @@ public class Repository {
 
 		return rowDataList;
 	}
+
 }
