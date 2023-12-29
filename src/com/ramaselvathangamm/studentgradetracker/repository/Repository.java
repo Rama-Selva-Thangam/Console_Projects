@@ -6,8 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-
-import com.ramaselvathangamm.personaldiary.dto.Diary;
 import com.ramaselvathangamm.studentgradetracker.dto.Student;
 
 public class Repository {

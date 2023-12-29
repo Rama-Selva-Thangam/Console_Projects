@@ -2,9 +2,7 @@ package com.ramaselvathangamm.studentgradetracker.repository;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 class DatabaseConnection {
 	private static final String URL = "jdbc:mysql://localhost:3306/student_grade_tracker";
@@ -16,14 +14,12 @@ class DatabaseConnection {
 	}
 
 	public static Connection getConnection() throws SQLException {
-		if (connection == null || connection.isClosed()) {
-			synchronized (DatabaseConnection.class) {
-				if (connection == null || connection.isClosed()) {
-					connection = DriverManager.getConnection(URL, USER_NAME, PASSWORD);
-				}
+		synchronized (DatabaseConnection.class) {
+			if (connection == null || connection.isClosed()) {
+				connection = DriverManager.getConnection(URL, USER_NAME, PASSWORD);
 			}
+			return connection;
 		}
-		return connection;
 	}
 
 	public static void closeConnection() {
