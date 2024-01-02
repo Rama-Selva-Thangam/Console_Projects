@@ -4,6 +4,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 
+import com.ramaselvathangamm.studentgradetracker.status.Status;
+
 public class AddNewStudentView {
 	private AddNewStudentViewModel addNewStudentViewModel;
 
@@ -30,13 +32,13 @@ public class AddNewStudentView {
 		int rollNumber = scan.nextInt();
 		scan.nextLine();
 		int status = addNewStudentViewModel.addNewStudent(studentName, dob, rollNumber);
-		if (status == 0) {
+		if (status == Status.SUCCESS) {
 			System.out.println("Student added Successfully");
-		} else if (status == 1) {
+		} else if (status == Status.EMPTY_STUDENT_NAME) {
 			System.out.println("Student Name Cannot be Empty");
-		} else if (status == 2) {
+		} else if (status == Status.INVALID_DATEOFBIRTH) {
 			System.out.println("Invalid Date of Birth");
-		} else if (status == 3) {
+		} else if (status == Status.EXISTING_ROLL_NUMBER) {
 			System.out.println("Roll Number already Exists");
 		}
 	}

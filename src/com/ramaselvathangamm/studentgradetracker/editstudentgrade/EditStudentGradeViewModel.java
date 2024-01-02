@@ -1,6 +1,7 @@
 package com.ramaselvathangamm.studentgradetracker.editstudentgrade;
 
 import com.ramaselvathangamm.studentgradetracker.repository.Repository;
+import com.ramaselvathangamm.studentgradetracker.status.Status;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -21,7 +22,12 @@ class EditStudentGradeViewModel {
 
 	public int editStudentGrade(Student student, int monthNumber, int subject1, int subject2, int subject3,
 			int subject4, int subject5) {
-		int status = 1;
+
+		boolean isValidMarks = subject1 < 0 || subject1 > 100 || subject2 < 0 || subject2 > 100 || subject3 < 0
+				|| subject3 > 100 || subject4 < 0 || subject4 > 100 || subject5 < 0 || subject5 > 100;
+		if (!isValidMarks) {
+			return Status.INVALID_MARK;
+		}
 		if (monthNumber >= 1 && monthNumber <= 12) {
 			Date date = new Date();
 			date.setMonth(monthNumber - 1);
@@ -32,15 +38,12 @@ class EditStudentGradeViewModel {
 					: (calculate >= 81) ? "A"
 							: (calculate >= 71) ? "B+"
 									: (calculate >= 61) ? "B" : (calculate >= 51) ? "C" : (calculate >= 41) ? "D" : "U";
-			status = Repository.getInstance().editStudent(student, monthName, subject1, subject2, subject3, subject4,
+			return Repository.getInstance().editStudent(student, monthName, subject1, subject2, subject3, subject4,
 					subject5, grade);
 
 		} else {
-			System.out.println("Invalid Month");
-			status = 2;
+			return Status.INVALID_MONTH;
 		}
-		return status;
-
 	}
 
 }

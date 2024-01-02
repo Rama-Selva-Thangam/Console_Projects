@@ -14,10 +14,14 @@ class DepositeMoneyViewModel {
 			System.out.println("Enter the amount in Multiples of 100,500");
 			return;
 		}
+		if (amount < 0) {
+			System.out.println("Enter the amount in Positive ");
+			return;
+		}
 		double depositedBalance = card.getBalance() + amount;
 		card.setBalance(depositedBalance);
 		System.out.println("Your Balance : " + depositedBalance);
-		
+
 	}
 
 }

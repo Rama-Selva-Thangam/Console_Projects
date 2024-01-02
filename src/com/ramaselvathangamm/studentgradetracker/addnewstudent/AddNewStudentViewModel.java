@@ -5,6 +5,7 @@ import java.util.Date;
 
 import com.ramaselvathangamm.studentgradetracker.dto.Student;
 import com.ramaselvathangamm.studentgradetracker.repository.Repository;
+import com.ramaselvathangamm.studentgradetracker.status.Status;
 
 class AddNewStudentViewModel {
 	private AddNewStudentView addNewStudentView;
@@ -15,19 +16,19 @@ class AddNewStudentViewModel {
 
 	public int addNewStudent(String studentName, long dateOfBirth, int rollNumber) {
 		if (studentName.isEmpty()) {
-			return 1;
+			return Status.EMPTY_STUDENT_NAME;
 		}
 		if (!isValidDateOfBirth(dateOfBirth)) {
-			return 2;
+			return Status.INVALID_DATEOFBIRTH;
 		}
 		if (!isValidRollNumber(rollNumber)) {
-			return 3;
+			return Status.EXISTING_ROLL_NUMBER;
 		}
 		Student student = new Student(rollNumber, studentName, dateOfBirth);
 
 		Repository.getInstance().addNewStudent(student);
 		Repository.getInstance().createStudentTable(student);
-		return 0;
+		return Status.SUCCESS;
 	}
 
 	private boolean isValidRollNumber(int rollNumber) {

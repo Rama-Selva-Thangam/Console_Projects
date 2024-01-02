@@ -1,6 +1,8 @@
 package com.ramaselvathangamm.studentgradetracker.viewstudentgrade;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Scanner;
 
 import com.ramaselvathangamm.studentgradetracker.dto.Student;
@@ -17,18 +19,20 @@ public class ViewStudentGradeView {
 		System.out.print("Enter the Roll Number : ");
 		int rollNumber = scan.nextInt();
 		Student student = viewStudentGradeViewModel.getStudent(rollNumber);
+
 		if (student != null) {
 			showStudentInfo(student);
 			ArrayList<String> data = viewStudentGradeViewModel.getGrade(student);
+
 			if (!data.isEmpty()) {
 				System.out.println("Grade Details:");
-				System.out.printf("%-15s%-10s%-10s%-10s%-10s%-10s%-10s%n", "Month | ", "Subject1 | ", "Subject2 | ", "Subject3 | ",
-						"Subject4 | ", "Subject5 | ", "Grade | ");
-				System.out.println("----------------------------------------------------------------------------------");
+				System.out.format("%-15s%-10s%-10s%-10s%-10s%-10s%-10s%n", "Month", "Subject1", "Subject2", "Subject3",
+						"Subject4", "Subject5", "Grade");
+				System.out.println("---------------------------------------------------------------------------");
 
 				for (String rowData : data) {
 					String[] result = rowData.split(",");
-					System.out.printf("%-15s%-10s%-10s%-10s%-10s%-10s%-10s%n", result[0], result[1], result[2],
+					System.out.format("%-15s%-10s%-10s%-10s%-10s%-10s%-10s%n", result[0], result[1], result[2],
 							result[3], result[4], result[5], result[6]);
 				}
 			} else {
@@ -40,7 +44,10 @@ public class ViewStudentGradeView {
 	}
 
 	public void showStudentInfo(Student student) {
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+		String formattedDate = dateFormat.format(new Date(student.getDateOfBirth()));
+
 		System.out.println("Student Name : " + student.getStudentName() + " | " + "Student Roll Number : "
-				+ student.getRollNumber()+" | " + "Date of Birth : " + student.getDateOfBirth());
+				+ student.getRollNumber() + " | " + "Date of Birth : " + formattedDate);
 	}
 }

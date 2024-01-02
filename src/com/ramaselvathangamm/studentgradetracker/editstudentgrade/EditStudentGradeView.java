@@ -3,6 +3,7 @@ package com.ramaselvathangamm.studentgradetracker.editstudentgrade;
 import java.util.Scanner;
 
 import com.ramaselvathangamm.studentgradetracker.dto.Student;
+import com.ramaselvathangamm.studentgradetracker.status.Status;
 
 public class EditStudentGradeView {
 	private EditStudentGradeViewModel editStudentGradeViewModel;
@@ -20,6 +21,7 @@ public class EditStudentGradeView {
 			showStudentInfo(student);
 			System.out.print("Enter the month number to edit or add : ");
 			int month = scan.nextInt();
+			System.out.println("Each Subject carry atmost 100 marks : ");
 			System.out.print("Enter Subject 1 mark : ");
 			int subject1 = scan.nextInt();
 			System.out.print("Enter Subject 2 mark : ");
@@ -33,12 +35,12 @@ public class EditStudentGradeView {
 			scan.nextLine();
 			int status = editStudentGradeViewModel.editStudentGrade(student, month, subject1, subject2, subject3,
 					subject4, subject5);
-			if (status == 0) {
+			if (status == Status.SUCCESS) {
 				System.out.println("Data added Successfully");
-			} else if (status == 2) {
+			} else if (status == Status.INVALID_MONTH) {
 				System.out.println("Invalid Month");
-			} else if (status == 3) {
-				System.out.println("Error occured\nData Not added");
+			} else if (status == Status.ERROR_OCCURED) {
+				System.out.println("Error Occured");
 			}
 		} else {
 			System.out.println("Student Not found");
