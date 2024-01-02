@@ -25,9 +25,7 @@ class AddNewStudentViewModel {
 			return Status.EXISTING_ROLL_NUMBER;
 		}
 		Student student = new Student(rollNumber, studentName, dateOfBirth);
-
 		Repository.getInstance().addNewStudent(student);
-		Repository.getInstance().createStudentTable(student);
 		return Status.SUCCESS;
 	}
 

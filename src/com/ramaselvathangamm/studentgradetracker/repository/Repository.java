@@ -24,10 +24,12 @@ public class Repository {
 	}
 
 	public static Repository getInstance() {
-		if (repository == null) {
-			repository = new Repository();
+		synchronized (Repository.class) {
+			if (repository == null) {
+				repository = new Repository();
+			}
+			return repository;
 		}
-		return repository;
 	}
 
 	public void addNewStudent(Student student) {
@@ -37,7 +39,8 @@ public class Repository {
 			preparedStatement.setInt(1, student.getRollNumber());
 			preparedStatement.setString(2, student.getStudentName());
 			preparedStatement.setLong(3, student.getDateOfBirth());
-			int rows = preparedStatement.executeUpdate();
+			preparedStatement.executeUpdate();
+			createStudentTable(student);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
