@@ -1,5 +1,7 @@
 package com.ramaselvathangamm.studentgradetracker.editstudentgrade;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 import com.ramaselvathangamm.studentgradetracker.dto.Student;
@@ -47,9 +49,12 @@ public class EditStudentGradeView {
 		}
 	}
 
-	private void showStudentInfo(Student student) {
-		System.out
-				.println(student.getStudentName() + " | " + student.getRollNumber() + " | " + student.getDateOfBirth());
+	public void showStudentInfo(Student student) {
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+		String formattedDate = dateFormat.format(new Date(student.getDateOfBirth()));
+
+		System.out.println("Student Name : " + student.getStudentName() + " | " + "Student Roll Number : "
+				+ student.getRollNumber() + " | " + "Date of Birth : " + formattedDate);
 	}
 
 }

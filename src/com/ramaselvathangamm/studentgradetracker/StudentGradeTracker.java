@@ -15,38 +15,36 @@ public class StudentGradeTracker {
 
 	public void init() {
 		Scanner scan = new Scanner(System.in);
-		boolean loop = true;
 		int choice;
 		do {
 			System.out.println(
 					"Enter the Option :\n1.Add New Student\n2.Edit Student Marks\n3.View Student Grade\n0.Exit");
-			System.out.println("-----------------------------");
+			System.out.println("--------------------------------------------------------------");
 			choice = scan.nextInt();
 			scan.nextLine();
 			switch (choice) {
 			case 1:
 				AddNewStudentView addNewStudentView = new AddNewStudentView();
 				addNewStudentView.addNewStudent();
-				System.out.println("------------------------------------------");
+				System.out.println("---------------------------------------------------------");
 				break;
 			case 2:
 				EditStudentGradeView editStudentGradeView = new EditStudentGradeView();
 				editStudentGradeView.editStudentGrade();
-				System.out.println("------------------------------------------");
+				System.out.println("---------------------------------------------------------");
 				break;
 			case 3:
 				ViewStudentGradeView viewStudentGradeView = new ViewStudentGradeView();
 				viewStudentGradeView.viewStudentGrade();
-				System.out.println("------------------------------------------");
+				System.out.println("---------------------------------------------------------");
 				break;
 			case 0:
-				loop = false;
 				break;
 			default:
 				System.out.println("Enter valid Input");
 			}
 
-		} while (loop);
+		} while (choice != 0);
 		System.out.println("THANK YOU !");
 	}
 
