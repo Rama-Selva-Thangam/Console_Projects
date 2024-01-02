@@ -24,10 +24,13 @@ public class Repository {
 	}
 
 	public static Repository getInstance() {
-		if (repository == null) {
-			repository = new Repository();
+		synchronized (Repository.class) {
+			if (repository == null) {
+				repository = new Repository();
+			}
+			return repository;
 		}
-		return repository;
+
 	}
 
 	public void createTableIfNotExists() {
