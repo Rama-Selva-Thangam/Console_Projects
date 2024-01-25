@@ -23,9 +23,9 @@ class EditStudentGradeViewModel {
 	public int editStudentGrade(Student student, int monthNumber, int subject1, int subject2, int subject3,
 			int subject4, int subject5) {
 
-		boolean isValidMarks = subject1 < 0 || subject1 > 100 || subject2 < 0 || subject2 > 100 || subject3 < 0
+		boolean isNotValidMarks = subject1 < 0 || subject1 > 100 || subject2 < 0 || subject2 > 100 || subject3 < 0
 				|| subject3 > 100 || subject4 < 0 || subject4 > 100 || subject5 < 0 || subject5 > 100;
-		if (!isValidMarks) {
+		if (isNotValidMarks) {
 			return Status.INVALID_MARK;
 		}
 		if (monthNumber >= 1 && monthNumber <= 12) {

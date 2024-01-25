@@ -1,7 +1,5 @@
 package com.ramaselvathangamm.studentgradetracker.dto;
 
-import java.util.HashMap;
-import java.util.Map;
 
 public class Student {
 	private int rollNumber;
