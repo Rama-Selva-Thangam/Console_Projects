@@ -1,11 +1,11 @@
-package com.ramaselvathangamm.chatbot1.viewmodel;
+package com.ramaselvathangamm.chatbot.viewmodel;
 
 import java.util.ArrayList;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-import com.ramaselvathangamm.chatbot1.repository.ChatBotRepository;
+import com.ramaselvathangamm.chatbot.repository.ChatBotRepository;
 
 public class AddChoiceViewModel {
 	@SuppressWarnings("unused")

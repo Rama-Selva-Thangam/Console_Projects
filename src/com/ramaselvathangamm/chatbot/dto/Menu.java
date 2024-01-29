@@ -1,4 +1,4 @@
-package com.ramaselvathangamm.chatbot1.dto;
+package com.ramaselvathangamm.chatbot.dto;
 
 public class Menu {
 	private int step;

@@ -1,10 +1,10 @@
-package com.ramaselvathangamm.chatbot1.viewmodel;
+package com.ramaselvathangamm.chatbot.viewmodel;
 import java.util.Scanner;
 import java.util.Stack;
 
 import org.json.simple.parser.ParseException;
 
-import com.ramaselvathangamm.chatbot1.dto.Menu;
+import com.ramaselvathangamm.chatbot.dto.Menu;
 
 public class SelectChoice {
 	private AddChoiceViewModel selectchoicevm;

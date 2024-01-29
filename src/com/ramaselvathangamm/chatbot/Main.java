@@ -1,8 +1,8 @@
-package com.ramaselvathangamm.chatbot1;
+package com.ramaselvathangamm.chatbot;
 
 import org.json.simple.parser.ParseException;
 
-import com.ramaselvathangamm.chatbot1.viewmodel.SelectChoice;
+import com.ramaselvathangamm.chatbot.viewmodel.SelectChoice;
 
 public class Main {
 

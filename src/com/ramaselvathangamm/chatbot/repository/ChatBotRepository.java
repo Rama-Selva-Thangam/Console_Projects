@@ -1,4 +1,4 @@
-package com.ramaselvathangamm.chatbot1.repository;
+package com.ramaselvathangamm.chatbot.repository;
 
 
 import java.io.File;
@@ -26,7 +26,7 @@ public class ChatBotRepository {
 	public JSONObject jsonAction() {
 		JSONParser jsonParser = new JSONParser();
 		File file = new File(
-				"C:\\Users\\pcconfig\\eclipse-workspace\\ZSGS_Projects\\src\\com\\ramaselvathangamm\\chatbot1\\repository\\item.json");
+				"src/com/ramaselvathangamm/chatbot/repository/item.json");
 		Object object = null;
 		try {
 			object = jsonParser.parse(new FileReader(file));
